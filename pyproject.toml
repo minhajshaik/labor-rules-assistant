@@ -1,0 +1,17 @@
+[project]
+name = "labor-rules-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=2.6.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+labor-rules-assistant = "labor_rules_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
