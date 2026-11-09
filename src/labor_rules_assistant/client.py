@@ -40,6 +40,7 @@ class AskResult:
     error_type: str | None = None
     error_class: str | None = None
     error_message: str | None = None
+    thinking_tokens: int | None = None  # tokens spent on the model's internal "thinking" (not in input/output)
 
     @property
     def ok(self) -> bool:
@@ -157,6 +158,8 @@ def ask(
             final = stream.get_final_message()
 
         usage = final.usage
+        details = getattr(usage, "ouput_token_details", None)
+        thinking_tokens = getattr(details, "thinking_tokens", None)
         result = AskResult(
             call_id=call_id,
             question_id=question_id,
@@ -165,6 +168,7 @@ def ask(
             stop_reason=final.stop_reason,
             input_tokens=usage.input_tokens,
             output_tokens=usage.output_tokens,
+            thinking_tokens=thinking_tokens,
             ttft_s=_round(ttft),
             latency_s=_round(time.perf_counter() - start),
             cost_usd=config.estimate_cost(model, usage.input_tokens, usage.output_tokens),
