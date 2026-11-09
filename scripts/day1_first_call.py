@@ -11,9 +11,12 @@ from labor_rules_assistant import config  # importing config loads .env
 client = anthropic.Anthropic()
 response = client.messages.create(
     model=config.DEFAULT_MODEL,
-    max_tokens=500,
+    max_tokens=4000,
+    thinking={"type": "adaptive","display": "summarized"},
     messages=[{"role": "user", "content": "Does a 6-hour shift in Oregon require a meal break?"}],
 )
+
+print("block types:",[block.type for block in response.content])
 
 print("=== full response object ===")
 print(response.model_dump_json(indent=2))

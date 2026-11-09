@@ -40,7 +40,7 @@ def _optional_float(var: str) -> float | None:
 
 
 DEFAULT_MODEL: str = os.getenv("LRA_MODEL", MODELS["sonnet"])
-DEFAULT_MAX_TOKENS: int = int(os.getenv("LRA_MAX_TOKENS", "1200"))
+DEFAULT_MAX_TOKENS: int = int(os.getenv("LRA_MAX_TOKENS", "4000"))
 # None = don't send temperature; the model uses its default. Day 1 compares 0 vs 1.
 DEFAULT_TEMPERATURE: float | None = _optional_float("LRA_TEMPERATURE")
 DEFAULT_TIMEOUT_S: float = float(os.getenv("LRA_TIMEOUT_S", "60"))
