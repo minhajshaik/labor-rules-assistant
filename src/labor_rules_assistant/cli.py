@@ -18,7 +18,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--model", help="haiku | sonnet | opus, or a full model ID (default: %(default)s)",
                    default=config.DEFAULT_MODEL)
     p.add_argument("--max-tokens", type=int, default=None, help=f"default {config.DEFAULT_MAX_TOKENS}")
-    p.add_argument("--temperature", type=float, default=None, help="omit to use the model default")
+    p.add_argument("--effort", choices=config.EFFORT_LEVELS, default=None,
+                   help="how much work the model puts in, thinking included (API default: high)")
     p.add_argument("--timeout", type=float, default=None, help=f"seconds, default {config.DEFAULT_TIMEOUT_S}")
     p.add_argument("--retries", type=int, default=None, help=f"SDK retries, default {config.DEFAULT_MAX_RETRIES}")
     p.add_argument("--id", dest="question_id", help="question ID to tag in the log, e.g. q01")
@@ -37,7 +38,7 @@ def main(argv: list[str] | None = None) -> int:
         question,
         model=args.model,
         max_tokens=args.max_tokens,
-        temperature=args.temperature,
+        effort=args.effort,
         timeout=args.timeout,
         max_retries=args.retries,
         question_id=args.question_id,
@@ -59,7 +60,8 @@ def main(argv: list[str] | None = None) -> int:
     if not args.quiet:
         cost = f"${result.cost_usd:.5f}" if result.cost_usd is not None else "cost n/a (set prices in config.py)"
         print(
-            f"\n[{result.model} · {result.input_tokens} in / {result.output_tokens} out tokens · "
+            f"\n[{result.model} · {result.input_tokens} in / {result.output_tokens} out tokens "
+            f"({result.thinking_tokens if result.thinking_tokens is not None else '?'} thinking) · "
             f"TTFT {result.ttft_s}s · total {result.latency_s}s · {cost} · stop={result.stop_reason}]",
             file=sys.stderr,
         )

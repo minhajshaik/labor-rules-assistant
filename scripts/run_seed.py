@@ -24,7 +24,7 @@ VERDICTS = "correct | partially correct | wrong | outdated | fabricated citation
 OUT_COLUMNS = [
     "id", "question", "category", "expected_behavior", "observed_behavior", "behavior_match",
     "model", "model_answer", "cited_rule", "confidence",
-    "stop_reason", "input_tokens", "output_tokens", "ttft_s", "latency_s", "cost_usd", "error",
+    "stop_reason", "input_tokens", "output_tokens", "thinking_tokens", "ttft_s", "latency_s", "cost_usd", "error",
     "verdict", "official_source_url", "date_checked", "notes",
 ]
 
@@ -33,7 +33,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--model", default=config.DEFAULT_MODEL, help="haiku | sonnet | opus, or a full model ID")
     p.add_argument("--ids", help="comma-separated question IDs to run (default: all)")
-    p.add_argument("--temperature", type=float, default=None)
+    p.add_argument("--effort", choices=config.EFFORT_LEVELS, default=None)
     p.add_argument("--max-tokens", type=int, default=None)
     args = p.parse_args()
 
@@ -55,7 +55,7 @@ def main() -> int:
     for n, row in enumerate(rows, 1):
         print(f"[{n}/{len(rows)}] {row['id']}: {row['question'][:70]}", file=sys.stderr)
         r = ask(row["question"], model=model, question_id=row["id"],
-                temperature=args.temperature, max_tokens=args.max_tokens)
+                effort=args.effort, max_tokens=args.max_tokens)
         observed = "error" if not r.ok else classify_reply(r.text)
         if r.truncated:
             observed = "truncated"
@@ -75,6 +75,7 @@ def main() -> int:
             "stop_reason": r.stop_reason or "",
             "input_tokens": r.input_tokens if r.input_tokens is not None else "",
             "output_tokens": r.output_tokens if r.output_tokens is not None else "",
+            "thinking_tokens": r.thinking_tokens if r.thinking_tokens is not None else "",
             "ttft_s": r.ttft_s if r.ttft_s is not None else "",
             "latency_s": r.latency_s,
             "cost_usd": r.cost_usd if r.cost_usd is not None else "",

@@ -1,0 +1,65 @@
+id,question,category,expected_behavior,observed_behavior,behavior_match,model,model_answer,cited_rule,confidence,stop_reason,input_tokens,output_tokens,thinking_tokens,ttft_s,latency_s,cost_usd,error,verdict,official_source_url,date_checked,notes
+q01,Does a 6-hour shift in Oregon require a meal break?,meal_break,answer,answered,yes,claude-sonnet-5-5,"Answer: Yes. Under Oregon's wage and hour rules, a nonexempt employee who works a period of six hours or more must generally get an uninterrupted 30-minute meal period, so a 6-hour shift is covered. If the employee is not fully relieved of duty, the meal period must be paid.
+
+Jurisdictions applied: Federal (FLSA) has no meal break requirement for adults, so it does not control. Oregon state law controls. Oregon has no city-level meal break rules that I know of. Oregon's statewide predictive scheduling law is about schedules, not meal breaks, so it does not change this answer.
+
+Rule the model believes applies: Oregon Administrative Rules, Chapter 839, Division 20, which I believe is OAR 839-020-0050 (meal and rest periods), issued under ORS Chapter 653. I am not fully certain of the subsection numbering. For the federal side, 29 CFR 785.18 (short rest breaks are paid) and 785.19 (bona fide meal periods) are the relevant regulations.
+
+Conditions and exceptions:
+- The meal period is 30 minutes, unpaid only if the employee is completely relieved of duty. If the employee must work or stay on call during the meal, it is paid.
+- My recollection is that for a work period of 6 to 7 hours, the meal period should fall roughly between the end of the second hour and the start of the fifth hour. Please verify this timing.
+- If the employee cannot practically be relieved of duty, the rule generally allows eating on duty, but the time must then be paid. I am not certain of the exact conditions.
+- The rule applies to nonexempt employees. Exempt employees and some specific industries or employee categories have different treatment.
+- Minors have separate, stricter rules, which I recall require a 30-minute meal period after about 5 hours of work.
+- Separately, Oregon requires paid 10-minute rest breaks, generally one for each 4-hour segment or major part of it.
+
+Confidence: Medium. I am fairly sure of the six-hour threshold and the 30-minute length, but less sure of the exact timing window, the on-duty exception wording and the subsection numbers.
+
+What to verify: Check the current text of OAR 839-020-0050 on the Oregon Bureau of Labor and Industries (BOLI) website. Confirm the timing window for 6 to 7 hour shifts, the on-duty meal exception, any industry or employee-category exemptions, the minor-specific rules and whether the rule has been amended since my training data.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","Oregon Administrative Rules, Chapter 839, Division 20, which I believe is OAR 839-020-0050 (meal and rest periods), issued under ORS Chapter 653. I am not fully certain of the subsection numbering. For the federal side, 29 CFR 785.18 (short rest breaks are paid) and 785.19 (bona fide meal periods) are the relevant regulations.",medium,end_turn,712,1695,835,7.577,13.47,,,,,,
+q03,"Under FLSA, does a 15-minute break have to be paid?",rest_break,answer,answered,yes,claude-sonnet-5-5,"Answer: Yes, under the FLSA a short break of about 5 to 20 minutes is generally treated as paid working time, so a 15-minute break must be paid if the employer provides one. The FLSA does not require employers to give rest breaks at all, but if they do, short ones count as hours worked.
+
+Jurisdictions applied: Federal only, since you asked about the FLSA. State law can add stronger rules. California, Oregon and Washington have their own rest break requirements, and those breaks are paid. New York and Texas have no general private-sector rest break mandate that I know of, so the federal rule would be the main one there. Where state and federal rules both apply, the more protective one controls.
+
+Rule the model believes applies: 29 CFR 785.18 (rest periods) says short breaks, running from about 5 minutes up to roughly 20 minutes, are customarily paid and must be counted as hours worked. Related provisions are 29 CFR 785.19 (bona fide meal periods) and 29 CFR 785.16 (off-duty time). I am confident of 785.18 and 785.19. I am less sure of exact wording, so check the text.
+
+Conditions and exceptions:
+- Meal periods differ. A bona fide meal period, typically 30 minutes or more, can be unpaid only if the employee is completely relieved of duty. If the employee works during the meal, it is paid time.
+- Longer breaks can be unpaid if the employee is truly relieved of duty and free to use the time for their own purposes. A 15-minute break normally does not qualify.
+- Lactation breaks are an exception. Under the FLSA's nursing-employee provision (29 U.S.C. 218d, as I recall, as amended by the PUMP Act), employers must give reasonable break time to express milk. That time is unpaid unless the employee is also using a paid break or another law requires pay. Coverage and exemptions vary, and I am not certain of every detail.
+- Salaried exempt employees are generally not tracked by hours, so this rule mostly matters for nonexempt employees.
+- Collective bargaining agreements, employer policies and state law may require more than the FLSA.
+- Minors: the FLSA does not set break rules for minors, but some states do.
+
+Confidence: High for the general federal rule, because the 785.18 treatment of short breaks as paid time is long-standing and well known. I am less sure of the exact wording of the lactation-break provisions.
+
+What to verify:
+- The current text of 29 CFR 785.18 and 785.19 on eCFR or the Department of Labor website.
+- The DOL fact sheets on breaks and meal periods, and on break time for nursing mothers, including whether any amendments or rule changes have occurred since my training data.
+- Your state's rules, if you work in California, Oregon, Washington, New York or Texas, since they may require paid breaks or other protections.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","29 CFR 785.18 (rest periods) says short breaks, running from about 5 minutes up to roughly 20 minutes, are customarily paid and must be counted as hours worked. Related provisions are 29 CFR 785.19 (bona fide meal periods) and 29 CFR 785.16 (off-duty time). I am confident of 785.18 and 785.19. I am less sure of exact wording, so check the text.",high,end_turn,712,1405,441,4.35,11.853,,,,,,
+q11,"Under NYC's Fair Workweek law, how far in advance must a fast-food employer post schedules?",fair_workweek,answer,answered,yes,claude-sonnet-5-5,"Answer: Under NYC's Fair Workweek law for fast-food employers, the written work schedule must be given to employees at least 14 days before the first shift on it. This is the 14-day advance notice requirement.
+
+Jurisdictions applied: Federal (FLSA): no schedule-notice requirement, so nothing conflicts. New York State: I am not aware of a general predictive-scheduling rule that would add to this. New York City: the Fair Workweek law for fast-food employees controls.
+
+Rule the model believes applies: NYC Administrative Code, Title 20 (Consumer and Worker Protection), the Fair Workweek provisions for fast-food employees, enacted in 2017 (I believe Local Law 100 of 2017). I am not certain of the exact section number, so check the current Code text rather than relying on a citation from me. The related NYC rules in 6 RCNY are also worth checking.
+
+Conditions and exceptions:
+- Coverage: the law applies to fast-food establishments that are part of a chain with 30 or more establishments nationwide. As I recall, the law has a specific definition of the covered employer and employee, so confirm that the business and the worker qualify.
+- Late changes: if the employer changes the schedule with less than 14 days' notice, such as adding, moving or cancelling shifts, it generally owes the employee premium pay. The amounts vary by type of change, and I am not confident enough to quote them.
+- Consent: employees must generally consent in writing to working extra hours or certain schedule changes, and there are limits on short rest between shifts (""clopening"") and related premiums.
+- Other rules: there are additional provisions on good-faith estimates of hours at hire and on how schedules must be posted or transmitted. I am not detailing them here.
+- Exceptions: some exceptions exist, such as operational emergencies outside the employer's control and employee-requested changes. I am not certain of their exact scope.
+- Collective bargaining: covered employees may have different terms under a union agreement.
+
+Confidence: High on the 14-day figure, because it is the core and widely cited requirement. Low on exact section numbers and premium amounts, which I cannot verify from memory.
+
+What to verify: 
+- The current text of the NYC Administrative Code and the NYC Department of Consumer and Worker Protection (DCWP) guidance on fast-food worker protections.
+- Whether the law has been amended since my training data, including the premium pay amounts, which may be adjusted over time.
+- Whether the employer meets the coverage threshold.
+- The exact exceptions and the required form of schedule delivery.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","NYC Administrative Code, Title 20 (Consumer and Worker Protection), the Fair Workweek provisions for fast-food employees, enacted in 2017 (I believe Local Law 100 of 2017). I am not certain of the exact section number, so check the current Code text rather than relying on a citation from me. The related NYC rules in 6 RCNY are also worth checking.",high,end_turn,724,1728,851,8.253,14.905,,,,,,

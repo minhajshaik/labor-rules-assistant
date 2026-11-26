@@ -1,0 +1,241 @@
+{
+  "model": "claude-sonnet-5-5",
+  "question": "Does a 6-hour shift in Oregon require a meal break?",
+  "summaries": [
+    {
+      "label": "A  temperature=0",
+      "runs": 1,
+      "error": "400 Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'temperature: Extra inputs are not permitted'}, 'request_id': 'req_011CgsnQ2mamjh7Z3H6pAnbp'}"
+    },
+    {
+      "label": "B  no system prompt",
+      "runs": 3,
+      "distinct_citation_sets": 2,
+      "most_common_citation": "OAR 839-020-0050",
+      "formatted": "0/3",
+      "confidence": {
+        "-": 3
+      },
+      "avg_thinking_tok": 757.0,
+      "avg_output_tok": 1261.0,
+      "avg_latency_s": 11.2,
+      "truncated": 0
+    },
+    {
+      "label": "C  system prompt",
+      "runs": 3,
+      "distinct_citation_sets": 3,
+      "most_common_citation": "ORS 653.261",
+      "formatted": "3/3",
+      "confidence": {
+        "medium": 3
+      },
+      "avg_thinking_tok": 1067.0,
+      "avg_output_tok": 1977.0,
+      "avg_latency_s": 16.1,
+      "truncated": 0
+    },
+    {
+      "label": "D1 system + effort=low",
+      "runs": 3,
+      "distinct_citation_sets": 3,
+      "most_common_citation": "29 CFR 785.19 | OAR 839-020-0050",
+      "formatted": "3/3",
+      "confidence": {
+        "medium": 2,
+        "low": 1
+      },
+      "avg_thinking_tok": 0.0,
+      "avg_output_tok": 899.0,
+      "avg_latency_s": 7.5,
+      "truncated": 0
+    },
+    {
+      "label": "D2 system + effort=high",
+      "runs": 3,
+      "distinct_citation_sets": 3,
+      "most_common_citation": "29 CFR 785.19 | OAR 839-020-0050",
+      "formatted": "3/3",
+      "confidence": {
+        "medium": 3
+      },
+      "avg_thinking_tok": 854.0,
+      "avg_output_tok": 1730.0,
+      "avg_latency_s": 14.7,
+      "truncated": 0
+    }
+  ],
+  "runs": {
+    "A  temperature=0": [
+      {
+        "error": "400 Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'temperature: Extra inputs are not permitted'}, 'request_id': 'req_011CgsnQ2mamjh7Z3H6pAnbp'}",
+        "latency_s": 0.48
+      }
+    ],
+    "B  no system prompt": [
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1297,
+        "thinking_tokens": 831,
+        "latency_s": 11.34,
+        "has_format": false,
+        "confidence": null,
+        "citations": [
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "**Yes.** Under Oregon BOLI rules (OAR 839-020-0050), an employee who works 6 or more hours must get a meal period of at ",
+        "text": "**Yes.** Under Oregon BOLI rules (OAR 839-020-0050), an employee who works 6 or more hours must get a meal period of at least 30 minutes.\n\n- **Timing:** For shifts of at least 6 hours but less than 7, the meal period should fall roughly between the 2nd and 5th hour of work. For longer shifts, the window is generally the 3rd through 5th hour.\n- **Unpaid vs. paid:** The meal period can be unpaid only if the employee is completely relieved of all duties and free to leave their post. If they must stay on duty, such as answering phones or watching the floor, the time must be paid.\n- **Missed meal periods:** If the employee doesn't get a compliant meal period, the employer generally owes pay for that time. Repeated violations can bring BOLI penalties.\n- **Rest breaks are separate:** A 6-hour shift also requires paid 10-minute rest breaks, generally two for a shift of 6 to 10 hours. These can't be combined with or substituted for the meal period.\n\nThere are a few narrow exceptions and special rules for certain industries, such as some agricultural, healthcare, and other specific workplaces. Also, if the employer and employee agree that the employee will work through lunch in a rare case where the full break isn't feasible, specific rules apply.\n\nFor your exact situation, check BOLI's Wage and Hour Division guidance or contact them directly."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1159,
+        "thinking_tokens": 634,
+        "latency_s": 10.49,
+        "has_format": false,
+        "confidence": null,
+        "citations": [],
+        "answer_first_line": "**Yes, in most cases.** Under Oregon Administrative Rule 839-020-0050, non-exempt employees who work a shift of **6 hour",
+        "text": "**Yes, in most cases.** Under Oregon Administrative Rule 839-020-0050, non-exempt employees who work a shift of **6 hours or more** must get an uninterrupted, duty-free meal period of at least **30 minutes**.\n\n**Meal period details**\n- It's generally **unpaid**, as long as the employee is completely relieved of duty.\n- If the employee has to work or stay on call during the meal, the employer must **pay** for that time.\n- For shifts of 7 hours or less, the meal period should fall **between the end of the 2nd hour and the start of the 5th hour** of the shift.\n- Employees who work less than 6 hours aren't entitled to a meal period.\n\n**Rest breaks (separate from the meal period)**\n- Employees get a **paid 10-minute rest break for every 4 hours or major part of 4 hours** worked. A 6-hour shift generally means **two** rest breaks.\n- Rest breaks should be taken in addition to the meal period, not combined with it.\n- Ideally they're spread out, roughly mid-way through each half of the work period.\n\n**Exceptions and special cases**\n- Some exempt employees, such as certain salaried executives and professionals, are not covered.\n- Minors have their own rules, so check the details if the worker is under 18.\n- Limited exceptions apply to situations like continuous operations where employees can't be relieved of duty. In these cases the employee must be paid for the meal time.\n\nFor a specific situation, the Oregon Bureau of Labor and Industries (BOLI) can confirm how the rules apply. This is general information, not legal advice."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1328,
+        "thinking_tokens": 805,
+        "latency_s": 11.68,
+        "has_format": false,
+        "confidence": null,
+        "citations": [
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "**Yes, in most cases.** Under Oregon law (OAR 839-020-0050), non-exempt employees who work a 6-hour shift are entitled t",
+        "text": "**Yes, in most cases.** Under Oregon law (OAR 839-020-0050), non-exempt employees who work a 6-hour shift are entitled to:\n\n**Meal period**\n- A **30-minute, uninterrupted, unpaid** meal break for any work period of **6 or more hours**.\n- For shifts of 7 hours or less, the break should fall **between the end of the 2nd hour and the start of the 5th hour**.\n- The employee must be completely relieved of duty. If the employer doesn't relieve them, the 30 minutes must be **paid**.\n- If only one employee is on duty and can't be relieved, the employer can instead let them eat on duty, but the time must be paid.\n\n**Rest breaks**\n- Employees get a **paid 10-minute rest break** for every 4 hours worked \"or major part thereof\" (more than half). A 6-hour shift therefore gets **one** 10-minute rest break, ideally in the middle of each work segment.\n- Rest breaks are separate from the meal period. They can't be combined or used to shorten the shift.\n\n**Shifts under 6 hours** don't require a meal period, though rest breaks may still apply.\n\n**Caveats**\n- Some employees are exempt, such as certain salaried exempt employees and some agricultural workers, and a few industries have special rules.\n- Oregon doesn't require premium pay for a missed meal break, but employees can claim wages for time worked during it, and BOLI can assess civil penalties.\n\nFor a specific situation, check with the Oregon Bureau of Labor and Industries (BOLI) or an employment attorney."
+      }
+    ],
+    "C  system prompt": [
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1789,
+        "thinking_tokens": 900,
+        "latency_s": 14.01,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "ORS 653.261"
+        ],
+        "answer_first_line": "Yes, in most cases. Oregon's rule generally requires an unpaid 30-minute meal period for a work period of six hours or m",
+        "text": "Answer: Yes, in most cases. Oregon's rule generally requires an unpaid 30-minute meal period for a work period of six hours or more, so a 6-hour shift is covered. If the employee is not fully relieved of duties, the 30 minutes generally must be paid.\n\nJurisdictions applied: Federal and Oregon state. The FLSA does not require meal breaks for adults, so it does not add anything here. Oregon's rule controls. No Oregon city has its own meal-break rule in my scope. Oregon's Fair Workweek law deals with scheduling, not meal breaks.\n\nRule the model believes applies: Oregon Administrative Rule 839-020-0050 (Bureau of Labor and Industries, meal periods and rest breaks), which implements ORS 653.261. I am fairly sure of the OAR number but not certain of the paragraph lettering. For minors, I believe OAR chapter 839, division 21 contains the rule, but I am not certain of the section.\n\nConditions and exceptions:\n- Timing: for a work period of 6 hours up to 7 hours, the meal period is generally supposed to fall between the second and fifth hour of work. For 7 hours or more, it falls between the third and fifth hour. Verify these details.\n- Relieved of duties: the 30 minutes is unpaid only if the employee is completely relieved of duties. Otherwise it is on-duty time and must be paid.\n- Sole employee or on-duty exceptions: there are limited provisions for situations where the employee cannot be relieved, such as being the only worker on duty. The employee must then be allowed to eat on duty and be paid.\n- Rest breaks: separate from the meal period, Oregon also requires paid rest breaks, generally 10 minutes per 4-hour segment or major part of it. A 6-hour shift would typically get a rest break in addition to the meal period.\n- Minors: different rules apply, and I recall a 30-minute meal period after 5 consecutive hours.\n- Exemptions: some categories, such as certain agricultural or other exempt employees, may fall outside these rules. Check whether the employee is covered.\n\nConfidence: Medium. I am fairly sure of the 6-hour threshold, but I am less certain of the exact timing windows, exemptions and paragraph citations.\n\nWhat to verify: Check the current text of OAR 839-020-0050 on the Oregon BOLI website. Confirm the 6-hour threshold, the timing windows, the on-duty meal provisions and any exemptions for the employee's industry or age. Also confirm that the rule has not been amended since my training data.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 2031,
+        "thinking_tokens": 1119,
+        "latency_s": 16.71,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "OAR 839-020-0050",
+          "ORS 653.261"
+        ],
+        "answer_first_line": "Yes, most likely. As I understand Oregon's wage and hour rule, a non-exempt employee who works 6 hours or more in a work",
+        "text": "Answer: Yes, most likely. As I understand Oregon's wage and hour rule, a non-exempt employee who works 6 hours or more in a work period must get an unpaid 30-minute meal period. For a shift of at least 6 but under 7 hours, it should start between the end of the 2nd hour and the end of the 5th hour of work.\n\nJurisdictions applied: Federal (FLSA) sets no meal-break requirement for adults, so it doesn't add anything here. Oregon's state rule controls. No Oregon city-level meal-break rules are in my scope. Oregon's statewide predictive scheduling law covers schedule notice, not meal breaks, so it doesn't change this answer.\n\nRule the model believes applies: Oregon Administrative Rules, BOLI wage and hour division, OAR 839-020-0050 (meal periods and rest periods), issued under ORS 653.261. I'm fairly confident of the OAR number but not of the exact subsection lettering. For minors, I believe the rules are in OAR chapter 839, division 21, but I'm not certain of the section.\n\nConditions and exceptions:\n- The meal period is unpaid only if the employee is fully relieved of duty. If the employee must stay on duty, the 30 minutes must be paid, and I believe that is allowed only where the nature of the work makes relief impracticable.\n- Exempt employees (for example, bona fide executive, administrative or professional) aren't covered by these rules.\n- Some industries and employers have special provisions or exemptions, and I can't list them reliably from memory.\n- Minors have separate rules and may have different thresholds.\n- Rest breaks are separate from meal periods. Oregon requires paid 10-minute rest breaks, and I believe a 6-hour shift generally gets two. I'm less sure where the cutoff falls at exactly 6 hours.\n- Collective bargaining agreements or employer policies may give more than the state minimum.\n- Missed meal periods can lead to penalty wages or other remedies. I haven't detailed those.\n\nConfidence: Medium. I'm fairly sure of the 6-hour threshold and the 30-minute length, but I can't confirm exact timing windows, subsection numbers or industry exceptions from memory.\n\nWhat to verify:\n- Read the current text of OAR 839-020-0050 on the Oregon Secretary of State or BOLI website.\n- Check the meal-period timing windows for shifts under 7 hours.\n- Confirm how the rule treats the employee's job category and whether any industry exception applies.\n- Check the minor-employee rules if the worker is under 18.\n- Confirm the rule hasn't been amended since my training data.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 2112,
+        "thinking_tokens": 1183,
+        "latency_s": 17.51,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "29 CFR 785.18",
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "Yes. Under Oregon's rules, an employee working a work period of 6 hours or more (up to under 14) is generally entitled t",
+        "text": "Answer: Yes. Under Oregon's rules, an employee working a work period of 6 hours or more (up to under 14) is generally entitled to an uninterrupted, unpaid 30-minute meal period. If the employee isn't fully relieved of duties, the time must be paid.\n\nJurisdictions applied: Federal (FLSA) and Oregon state. The FLSA does not require meal breaks for adults, so Oregon's more protective rule controls. No Oregon city meal-break rules are in my scope. Oregon's Fair Workweek law is a separate scheduling law and does not change the meal-break rule.\n\nRule the model believes applies: Oregon Administrative Rules, Chapter 839, Division 20, OAR 839-020-0050 (meal and rest periods), issued by the Bureau of Labor and Industries (BOLI). I am fairly sure of this section number but not certain of the subsection lettering. On the federal side, 29 CFR 785.18 (rest periods) and 785.19 (meal periods) describe when breaks are paid or unpaid.\n\nConditions and exceptions:\n- Timing: I believe the meal period must fall within a set window of the shift, such as between the second and fifth hour for shorter work periods. I'm not certain of the exact window for a 6-hour shift, so check it.\n- On-duty meals: if the employee can't be relieved of all duties (for example, the only person on site and relief is impracticable), the meal period generally must be paid.\n- Short shifts: work periods under 6 hours generally do not require a meal period.\n- Rest breaks: Oregon separately requires paid 10-minute rest breaks, scaled to shift length. I believe a 6-hour shift gets one, but verify the exact threshold.\n- Exempt employees: employees exempt from Oregon's wage and hour rules, such as certain salaried executive, administrative or professional employees and some agricultural workers, may not be covered.\n- Minors: separate rules may apply to employees under 18, and I'm not certain of the details.\n- Employer-specific exceptions: BOLI recognizes some limited exceptions (for example, certain industries or employer-size situations), and I can't state them reliably.\n\nConfidence: Medium. I'm confident about the general 6-hour meal-period threshold, but less certain about the timing window, subsection numbers and exceptions.\n\nWhat to verify: Read the current text of OAR 839-020-0050 on the BOLI or Oregon Secretary of State website. Check the meal-period timing window for work periods under 7 hours, the rest-break table, the on-duty meal and relief provisions, the minor-specific rules, and any industry exemptions. Also confirm the rule hasn't been amended since my training data.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      }
+    ],
+    "D1 system + effort=low": [
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 886,
+        "thinking_tokens": 0,
+        "latency_s": 7.33,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "29 CFR 785.19",
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "Yes. In Oregon, an employee who works a shift of 6 hours or more generally must get an unpaid 30-minute meal period. Shi",
+        "text": "Answer: Yes. In Oregon, an employee who works a shift of 6 hours or more generally must get an unpaid 30-minute meal period. Shifts of less than 6 hours do not require one, and for shifts of exactly 6 hours or more the rule is generally understood to apply, though the wording is worth checking.\n\nJurisdictions applied: Federal: the FLSA does not require meal breaks for adult workers, so it does not control. State: Oregon's meal period rule applies and controls. City: none of the in-scope city rules change this. Oregon's statewide predictive scheduling law concerns schedules, not meal periods.\n\nRule the model believes applies: Oregon Bureau of Labor and Industries (BOLI) administrative rule OAR 839-020-0050 (meal periods and rest periods for covered employees). The statutory basis is in ORS chapter 653, but I am not certain of the exact statute section. For federal context, 29 CFR 785.19 covers when meal periods are non-compensable under the FLSA.\n\nConditions and exceptions:\n- The meal period is a 30-minute, uninterrupted period, and it is unpaid only if the employee is completely relieved of duty. If the employee must work or stay on duty, the time must be paid.\n- For shifts of 6 hours or less, I recall that no meal period is required. For shifts over 6 hours up to 7 hours, my recollection is that the meal period should be taken between the second and fifth hour. I am not certain of these details.\n- If the work period is too short for a meal period, rules on paid rest periods apply separately (generally 10 minutes per 4 hours worked, or major portion thereof).\n- If the employer cannot relieve the employee of duty, the employee must be paid for an on-duty meal period of 30 minutes.\n- Some employees are exempt, including certain salaried exempt employees and some industry-specific cases. Minors have additional rules.\n- Where the exact threshold matters, such as a shift of exactly 6 hours, the rule's wording about \"six hours or more\" versus \"more than six hours\" is the point I am least sure of.\n\nConfidence: Medium. I am fairly sure about the 30-minute unpaid meal period for longer shifts, but I am not sure how the rule treats a shift of exactly 6 hours.\n\nWhat to verify: Read the current text of OAR 839-020-0050 on the BOLI website, especially the hour thresholds, the timing windows, and the on-duty meal period rules. Check whether the rule has been amended since my training data, and check for any industry-specific or minor-specific provisions that apply to the employee.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 881,
+        "thinking_tokens": 0,
+        "latency_s": 7.31,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "Generally yes. Oregon requires a 30-minute unpaid meal period for employees who work 6 or more hours in a work period, s",
+        "text": "Answer: Generally yes. Oregon requires a 30-minute unpaid meal period for employees who work 6 or more hours in a work period, so a 6-hour shift would typically trigger it. Shifts of less than 6 hours generally do not.\n\nJurisdictions applied: Federal (FLSA) and Oregon state. The FLSA does not require meal breaks for adults, so the Oregon rule controls. Oregon's statewide Fair Workweek law is not relevant to whether a meal break is required. No city layer applies.\n\nRule the model believes applies: Oregon Administrative Rules, Bureau of Labor and Industries (BOLI), OAR 839-020-0050 (meal periods and rest periods). I am fairly confident of this section number but not certain of the subsection details. The federal baseline is in 29 CFR Part 785 (for example, 785.18 on rest periods and 785.19 on meal periods), which governs when break time counts as paid work time.\n\nConditions and exceptions:\n- Employees working 6 to 7 hours generally get one 30-minute meal period, and it should be taken roughly in the middle of the shift, not at the very start or end. I believe the rules also address longer shifts, but I am not certain of the details.\n- The meal period is unpaid only if the employee is fully relieved of duty. If the employee must stay on duty or work through it, the time is generally paid. If the employer cannot give a full relief period, I believe a paid on-duty meal of 30 minutes may be allowed in limited circumstances, but I am not certain of the conditions.\n- Separate paid 10-minute rest periods are required in Oregon, based on hours worked. A 6-hour shift would generally involve rest breaks too, but check the exact count.\n- Minors (under 18) may be subject to different or additional rules, and I am not certain of the specifics.\n- Some industries or situations, such as certain agricultural work and some employers covered by other rules, may be treated differently. Also, I recall that certain employers with a single employee on duty may have exceptions, but I am not sure about the details.\n\nConfidence: Medium. I am fairly sure about the 6-hour threshold and 30-minute unpaid meal period, but less sure about the exact subsection and the exception details.\n\nWhat to verify: Check the current text of OAR 839-020-0050 on the BOLI website, including the threshold language (6 hours or more versus more than 6), timing of the meal period, the on-duty meal exception, rest break counts, minor-specific rules, and any industry carve-outs. Also confirm the rule has not been amended since my training data.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 929,
+        "thinking_tokens": 0,
+        "latency_s": 7.99,
+        "has_format": true,
+        "confidence": "low",
+        "citations": [
+          "29 CFR 785.18",
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "Generally, yes. Oregon's rule requires a 30-minute unpaid meal period for employees who work more than 6 hours in a work",
+        "text": "Answer: Generally, yes. Oregon's rule requires a 30-minute unpaid meal period for employees who work more than 6 hours in a work period, so a shift of exactly 6 hours would typically not trigger it, but a shift of 6 hours and 1 minute or longer would. Shifts of 7 hours or more are also commonly framed around the rule, so confirm how your hours are counted.\n\nJurisdictions applied: Federal FLSA has no meal break requirement for adults, so it does not add anything here. Oregon state law controls. Oregon's statewide Fair Workweek law may matter for scheduling but does not change the meal break rule. No city layer applies that I know of.\n\nRule the model believes applies: Oregon Administrative Rules, Bureau of Labor and Industries (BOLI), OAR 839-020-0050 (meal periods and rest periods). I believe this is the correct section but am not fully certain of the exact subsection numbering. The federal reference for compensability of breaks is 29 CFR 785.18 (short rest periods of about 5 to 20 minutes are paid) and 785.19 (bona fide meal periods of 30 minutes or more are generally unpaid if the employee is completely relieved of duty).\n\nConditions and exceptions:\n- As I recall, the meal period applies to shifts of 6 or more hours, but not clearly more than 6. The precise threshold is a detail I'm unsure of, so a shift of exactly 6 hours is the borderline case.\n- The meal period must be at least 30 minutes and uninterrupted, and is unpaid only if the employee is relieved of all duty. If the employee must stay on duty, the time must be paid.\n- Work periods of 7 hours or less have different timing rules than longer ones, and the meal period generally should fall in the middle part of the shift.\n- Where it is impractical to relieve the employee of duty, the employee may be allowed to eat on duty with pay.\n- Oregon also requires paid 10-minute rest periods per four-hour segment, which is separate from the meal period.\n- Minors have additional rules, and some industries or situations (for example, certain employers with limited staffing) have exceptions or alternatives.\n\nConfidence: Low to medium. I'm confident Oregon requires a meal period for longer shifts but unsure whether the trigger is \"6 hours or more\" or \"more than 6 hours\", which is exactly what your question turns on.\n\nWhat to verify: Read the current text of OAR 839-020-0050 on the BOLI website, specifically the hour threshold for the meal period and the rules for work periods of 7 hours or less. Also check whether the rule has been amended since my training data, and whether any collective bargaining agreement or industry-specific rule applies.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      }
+    ],
+    "D2 system + effort=high": [
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1674,
+        "thinking_tokens": 775,
+        "latency_s": 14.0,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "29 CFR 785.19",
+          "OAR 839-020-0050"
+        ],
+        "answer_first_line": "Yes. Under Oregon's wage and hour rules, a work period of six hours or more generally requires a 30-minute meal period. ",
+        "text": "Answer: Yes. Under Oregon's wage and hour rules, a work period of six hours or more generally requires a 30-minute meal period. A 6-hour shift meets that threshold, though some employees are exempt (see below).\n\nJurisdictions applied: Federal and Oregon state. The FLSA does not require meal breaks, so Oregon's rule controls. No Oregon city layer applies to this question. Oregon's statewide Fair Workweek law deals with scheduling, not meal periods.\n\nRule the model believes applies: Oregon Administrative Rules, BOLI wage and hour rules, OAR 839-020-0050 (meal periods and rest periods). My understanding is that for a work period of at least six hours but less than seven, the 30-minute meal period must be taken between the end of the 2nd hour and the start of the 5th hour of work. I am not certain of the exact subsection lettering or the timing windows. For federal context, 29 CFR 785.19 covers when a meal period is unpaid hours-not-worked time, but it does not require the break itself.\n\nConditions and exceptions:\n- The meal period is generally unpaid only if the employee is completely relieved of duties. If the employee must stay on duty (for example, no relief is available), the 30 minutes is generally paid.\n- Exempt employees (certain salaried executive, administrative or professional employees) and some industries or occupations are carved out of the rule. I am not certain of the full list.\n- If the shift is under six hours, no meal period is required, but rest break rules may still apply. Oregon generally requires paid 10-minute rest breaks per four hours worked, and that is a separate rule.\n- Minors (under 18) may be subject to different or additional rules, such as meal timing after a set number of hours. I am not certain of the exact rule or section for minors.\n- If a meal period is missed because the employer did not provide it, the employee may have a claim for penalty wages or other remedies. I am not certain of the specifics.\n- Collective bargaining agreements may add to these protections.\n\nConfidence: Medium to high. I am fairly sure of the 6-hour trigger and the 30-minute length, but less sure of the exact timing windows, subsection numbering, and exemptions.\n\nWhat to verify:\n- The current text of OAR 839-020-0050 on the Oregon Secretary of State or BOLI websites, including the six-hour threshold, the timing windows, and the on-duty paid meal provisions.\n- Whether the employee falls within an exemption (exempt status, industry, or occupation).\n- The separate minor employment rules if the employee is under 18.\n- Whether the rule has been amended since my training data.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1764,
+        "thinking_tokens": 907,
+        "latency_s": 14.24,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [
+          "29 CFR 785.18-785.19"
+        ],
+        "answer_first_line": "Yes, generally. Under Oregon's wage and hour rules, a non-exempt employee working a continuous 6-hour period must get an",
+        "text": "Answer: Yes, generally. Under Oregon's wage and hour rules, a non-exempt employee working a continuous 6-hour period must get an unpaid meal period of at least 30 minutes, during which they are fully relieved of duty. For a work period of 7 hours or less, the meal period should fall between the end of the 2nd hour and the start of the 5th hour of work.\n\nJurisdictions applied: Federal law (FLSA) does not require meal breaks for adults, so it does not add anything here. Oregon state law controls. No city-level meal rule applies in Oregon.\n\nRule the model believes applies: Oregon Administrative Rule 839-020-0050 (BOLI meal period and rest break rule), issued under ORS chapter 653. I am confident in the rule number. I am less sure of the exact subsection numbering and of the precise wording of the 6-hour threshold. The federal background is 29 CFR 785.18-785.19, which treats short rest breaks as paid work time and requires a bona fide meal period to be fully relieved of duty.\n\nConditions and exceptions:\n- The threshold is the length of the work period, not the scheduled shift. Work periods under 6 hours do not require a meal period. Whether exactly 6 hours counts as \"6 or more\" is the point I am least sure of.\n- If the employee is not fully relieved of duty, or it is not feasible to relieve them, the employer must pay for the meal time as an on-duty meal period.\n- Rest breaks are separate. Oregon requires a paid 10-minute rest period for each 4 hours or major part of 4 hours worked, and the rule says how they must be scheduled.\n- Exemptions can change the answer, including certain executive, administrative and professional employees and some agricultural work. Certain industry-specific rules and collective bargaining agreements may also matter.\n- Minors have separate rules and may be treated differently. I am not certain of the details.\n\nConfidence: Medium. I am confident Oregon requires a 30-minute unpaid meal period for longer shifts, but I am not certain of the exact threshold wording for a work period of exactly 6 hours.\n\nWhat to verify: Check the current text of OAR 839-020-0050 on the Oregon BOLI website or the Oregon Secretary of State's administrative rules site. Confirm the hour threshold, the timing window, the on-duty meal provisions, and whether the rule has been amended since my training data. Also confirm whether the employee is exempt and whether any minor or industry-specific rule applies.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      },
+      {
+        "stop_reason": "end_turn",
+        "output_tokens": 1751,
+        "thinking_tokens": 880,
+        "latency_s": 15.9,
+        "has_format": true,
+        "confidence": "medium",
+        "citations": [],
+        "answer_first_line": "Yes. Under Oregon's wage and hour rules, an employee who works a work period of six hours or more must get an unpaid mea",
+        "text": "Answer: Yes. Under Oregon's wage and hour rules, an employee who works a work period of six hours or more must get an unpaid meal period of at least 30 minutes, so a 6-hour shift qualifies. If the employee is not fully relieved of duty during the meal period, it generally must be paid.\n\nJurisdictions applied: Federal law (FLSA) has no meal break requirement for adult workers, so it does not control here. Oregon state law controls and is more protective. No Oregon city meal break rules are in my scope. Oregon's Fair Workweek law deals with scheduling, not meal periods.\n\nRule the model believes applies: Oregon Administrative Rule 839-020-0050 (BOLI wage and hour rules on meal periods and rest periods). I am confident of the rule number but not of the exact subsection lettering. For a work period of at least six hours but less than seven, my recollection is that the meal period should fall between the second and fifth hour worked. For seven hours or more, I believe it should fall between the third and fifth hour. I am less sure of those timing windows than of the six-hour threshold. Oregon also requires paid 10-minute rest breaks, generally one for each four hours or major part of four hours, so a 6-hour shift would typically include two. The same rule covers those breaks.\n\nConditions and exceptions:\n- Work periods under six hours do not require a meal period.\n- The meal period must be uninterrupted and the employee relieved of duty. If the employer cannot relieve the employee, the time is generally paid as on-duty time. There is a limited rule for situations where relief is not feasible, and I am not certain of its exact wording.\n- Minors under 18 may be subject to separate child labor rules (OAR chapter 839, division 21). I am not certain of the specifics.\n- Some industries, such as agriculture, and some employee categories, such as exempt employees, may be treated differently.\n- Employees cannot simply waive these rights, though BOLI rules address some practical arrangements.\n\nConfidence: Medium. I am confident about the six-hour threshold and the 30-minute unpaid meal period, but less sure of the timing windows, subsection numbers and exception wording.\n\nWhat to verify: Check the current text of OAR 839-020-0050 on the Oregon BOLI website or the Oregon Secretary of State's administrative rules database. Look at the timing windows for the meal period, the on-duty meal exception, and the rest break schedule. Also confirm whether the rule has been amended since my training data, and check the minor and industry-specific rules if they apply.\n\nDisclaimer: General information, not legal advice. Verify with the official source or a qualified professional."
+      }
+    ]
+  }
+}

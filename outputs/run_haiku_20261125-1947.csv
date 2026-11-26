@@ -1,0 +1,40 @@
+id,question,category,expected_behavior,observed_behavior,behavior_match,model,model_answer,cited_rule,confidence,stop_reason,input_tokens,output_tokens,thinking_tokens,ttft_s,latency_s,cost_usd,error,verdict,official_source_url,date_checked,notes
+q01,Does a 6-hour shift in Oregon require a meal break?,meal_break,answer,answered,yes,claude-haiku-5-5,"Answer: Generally yes. Under Oregon law, an employer must provide a meal period of at least 30 minutes for a work period of 6 hours or more, and the meal period is typically unpaid if the employee is fully relieved of duty.
+
+Jurisdictions applied: Oregon state law controls. The federal FLSA does not require meal breaks for adult employees, though it does require paid short rest breaks (generally 5 to 20 minutes) to be counted as hours worked. Oregon's rules are more protective on meal periods, so they apply. Oregon's Fair Workweek law addresses scheduling notice, not meal breaks, so it does not change this answer.
+
+Rule the model believes applies: ORS 653.261 (authorizing statute) and its implementing rule, OAR 839-020-0050 (meal and rest periods). I am fairly confident in the 6-hour, 30-minute structure but not certain of the exact subsection numbers, so please confirm the citation.
+
+Conditions and exceptions: Oregon's rules include some industry-specific exemptions and special provisions, such as for certain agricultural or other covered workers, and separate rules apply to minors under 18 (which I believe use shorter thresholds, such as a meal period for shifts over 5 hours, under OAR 839-021). Employers may have to schedule the meal period within a required window, and a meal period may be paid if the employee is not relieved of duty. Whether a 6-hour shift triggers the break can also depend on how the shift is defined.
+
+Confidence: medium. The core 6-hour and 30-minute rule is well established in my training data, but the timing requirements, exemptions, and minor-specific provisions are details I may have wrong or that may have changed.
+
+What to verify: Check the current text of ORS 653.261 and OAR 839-020-0050 on the Oregon Bureau of Labor and Industries (BOLI) website. Confirm the meal period timing window, whether an industry exemption applies to your situation, the minor rules if relevant, and whether any recent legislative changes have altered the threshold.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","ORS 653.261 (authorizing statute) and its implementing rule, OAR 839-020-0050 (meal and rest periods). I am fairly confident in the 6-hour, 30-minute structure but not certain of the exact subsection numbers, so please confirm the citation.",medium,end_turn,712,1395,689,4.747,7.944,,,,,,
+q03,"Under FLSA, does a 15-minute break have to be paid?",rest_break,answer,answered,yes,claude-haiku-5-5,"Answer: Under the FLSA, a short rest break of about 15 minutes generally must be paid, because breaks of 5 to 20 minutes count as hours worked. Meal periods, which are typically 30 minutes or longer and completely free of work, do not have to be paid.
+
+Jurisdictions applied: Federal FLSA only. It sets a floor that applies in every state, and state or city law can require more. Your state was not provided, so I can't say whether a stricter rule applies. The federal rule controls only where no state or local rule is more protective.
+
+Rule the model believes applies: 29 CFR 785.18 (rest periods of short duration, 5 to 20 minutes, are compensable hours worked) and 29 CFR 785.19 (bona fide meal periods, generally 30 minutes or more, during which the employee is completely relieved from duty, need not be paid).
+
+Conditions and exceptions: The break is compensable if it is a short rest period, not a meal period. A 15-minute break the employee is required to take or is free to take for rest still counts as paid time. A break that is actually a meal period is unpaid only if the employee is completely relieved from duty for the entire period. If the employee must stay at the desk, answer calls, or otherwise work during the break, the whole period is compensable. The FLSA does not itself require employers to provide any breaks, and it does not set minimum break lengths. Tipped and other minimum-wage or overtime rules can change the pay math in some cases. Some state rules, such as California's paid 10-minute rest break per four hours, are more protective and can change the answer.
+
+Confidence: High for the federal baseline, since 29 CFR 785.18 and 785.19 have been stable for a long time and clearly address short rest breaks versus meal periods.
+
+What to verify: Confirm the current text of 29 CFR 785.18 and 785.19 on eCFR.gov. Check your state's meal and rest break rules, and any city rules, since those may require paid breaks or set different timing. Also check whether your employer's policy or any collective bargaining agreement provides additional requirements. If you tell me your state and city, I can address the state and local layers.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","29 CFR 785.18 (rest periods of short duration, 5 to 20 minutes, are compensable hours worked) and 29 CFR 785.19 (bona fide meal periods, generally 30 minutes or more, during which the employee is completely relieved from duty, need not be paid).",high,end_turn,712,1208,479,2.863,6.286,,,,,,
+q11,"Under NYC's Fair Workweek law, how far in advance must a fast-food employer post schedules?",fair_workweek,answer,answered,yes,claude-haiku-5-5,"Answer: Under New York City's fast food scheduling law, my understanding is that covered employers must give employees their work schedules at least 14 days in advance. I'm not certain this figure is current, so please check it against the official text before relying on it.
+
+Jurisdictions applied: New York City (local layer). The state of New York and federal FLSA do not set a schedule-posting deadline of this kind, so the NYC rule is the one that controls for covered fast food employers in the city.
+
+Rule the model believes applies: NYC Administrative Code, Title 20, Chapter 12 (the Fair Workweek provisions for fast food employees, §20-1201 et seq.). I believe the advance-notice requirement is in the §20-1222 range, but I am not certain of the exact section number.
+
+Conditions and exceptions: The law covers ""fast food employers,"" which I understand to mean limited-service restaurant chains with 30 or more locations nationally, and applies to fast food employees working in NYC. Smaller independent restaurants, and employers outside the defined category, may fall outside it. Other requirements in the same law (such as predictability pay for schedule changes, rest periods between shifts, and the right to decline added hours) have their own conditions and are not covered here. Confirm whether any exemptions apply to particular employee categories.
+
+Confidence: Medium. I recall the fast food scheduling law and its general structure, but I am not confident of the exact notice period, the section number, or whether amendments have changed the details.
+
+What to verify: The current NYC Admin Code Title 20, Chapter 12, text on the NYC Council website (council.nyc.gov) or the NYC Department of Consumer and Worker Protection (DCWP) site, which enforces the law. Check the exact advance-notice period, the definition of a covered fast food employer and the location threshold, any later amendments or retail-related expansions, and DCWP guidance for the current requirements.
+
+Disclaimer: General information, not legal advice. Verify with the official source or a qualified professional.","NYC Administrative Code, Title 20, Chapter 12 (the Fair Workweek provisions for fast food employees, §20-1201 et seq.). I believe the advance-notice requirement is in the §20-1222 range, but I am not certain of the exact section number.",medium,end_turn,724,1666,1015,5.222,8.76,,,,,,

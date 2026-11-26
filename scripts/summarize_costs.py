@@ -45,7 +45,7 @@ def main() -> int:
     print(f"{len(rows)} calls · {rows[0]['ts'][:10]} → {rows[-1]['ts'][:10]}"
           f" · prices as of {config.PRICES_AS_OF or 'NOT SET (edit config.py)'}\n")
 
-    header = f"{'model':<20}{'calls':>6}{'ok':>5}{'err':>5}{'trunc':>6}{'in tok':>9}{'out tok':>9}" \
+    header = f"{'model':<20}{'calls':>6}{'ok':>5}{'err':>5}{'trunc':>6}{'in tok':>9}{'out tok':>9}{'think':>8}" \
              f"{'$/answer':>10}{'$ total':>9}{'TTFT p50':>10}{'lat p50':>9}{'lat p95':>9}{'lat max':>9}"
     print(header)
     print("-" * len(header))
@@ -62,6 +62,7 @@ def main() -> int:
         print(
             f"{model:<20}{len(rs):>6}{len(ok):>5}{len(rs) - len(ok):>5}{trunc:>6}"
             f"{sum(r.get('input_tokens') or 0 for r in ok):>9}{sum(r.get('output_tokens') or 0 for r in ok):>9}"
+            f"{sum(r.get('thinking_tokens') or 0 for r in ok):>8}"
             f"{fmt(sum(costs) / len(costs) if costs else None, '', 5):>10}{fmt(sum(costs) if costs else None, '', 4):>9}"
             f"{fmt(pct(ttft, 50), 's'):>10}{fmt(pct(lat, 50), 's'):>9}{fmt(pct(lat, 95), 's'):>9}"
             f"{fmt(max(lat) if lat else None, 's'):>9}"

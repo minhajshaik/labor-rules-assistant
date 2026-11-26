@@ -34,15 +34,14 @@ def resolve_model(name: str | None) -> str:
     return MODELS.get(name.lower(), name)
 
 
-def _optional_float(var: str) -> float | None:
-    raw = os.getenv(var)
-    return float(raw) if raw not in (None, "") else None
-
-
 DEFAULT_MODEL: str = os.getenv("LRA_MODEL", MODELS["sonnet"])
+# max_tokens covers thinking AND the answer. Day 1 showed ~750 thinking + ~600 answer tokens,
+# so 1200 was too tight; set this from measured usage plus headroom.
 DEFAULT_MAX_TOKENS: int = int(os.getenv("LRA_MAX_TOKENS", "4000"))
-# None = don't send temperature; the model uses its default. Day 1 compares 0 vs 1.
-DEFAULT_TEMPERATURE: float | None = _optional_float("LRA_TEMPERATURE")
+# Effort: low | medium | high | xhigh | max. None = don't send it (the API default is high).
+# This is the real cost/quality lever on current models; temperature can't be changed on them.
+EFFORT_LEVELS = ("low", "medium", "high", "xhigh", "max")
+DEFAULT_EFFORT: str | None = os.getenv("LRA_EFFORT") or None
 DEFAULT_TIMEOUT_S: float = float(os.getenv("LRA_TIMEOUT_S", "60"))
 # The SDK retries 408/409/429/5xx and connection errors itself, with backoff.
 # We set the count explicitly so it is a decision, not a default.

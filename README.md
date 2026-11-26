@@ -56,8 +56,11 @@ uv run python -m labor_rules_assistant --help
 # Ask one question (streams the answer)
 uv run python -m labor_rules_assistant "Are rest breaks in Washington paid?"
 
-# Pick a model tier and tag the call in the log
-uv run python -m labor_rules_assistant --model haiku --id q07 "Are rest breaks in Washington paid?"
+# Pick a model tier and effort level, and tag the call in the log
+uv run python -m labor_rules_assistant --model haiku --effort low --id q07 "Are rest breaks in Washington paid?"
+
+# Day 1 step 2: which parameters control consistency? (system prompt, effort; temperature is fixed)
+uv run python scripts/day1_step2_params.py --runs 3
 
 # Run the seed questions and write a verification sheet to outputs/
 uv run python scripts/run_seed.py --model sonnet
@@ -79,6 +82,7 @@ src/labor_rules_assistant/
   cli.py          command line
 scripts/
   day1_first_call.py   a single raw API call, for learning the response shape
+  day1_step2_params.py system prompt / effort / temperature experiment, citation drift
   run_seed.py          runs evals/seed_questions.csv → outputs/run_*.csv
   summarize_costs.py   cost and latency report from the call log
 evals/seed_questions.csv   16 seed questions (becomes the Stage 6 eval set)

@@ -40,7 +40,7 @@ class AskResult:
     error_type: str | None = None
     error_class: str | None = None
     error_message: str | None = None
-    thinking_tokens: int | None = None  # tokens spent on the model's internal "thinking" (not in input/output)
+    thinking_tokens: int | None = None  # part of output_tokens, billed as output
 
     @property
     def ok(self) -> bool:
@@ -93,7 +93,7 @@ def ask(
     system: str = SYSTEM_PROMPT,
     model: str | None = None,
     max_tokens: int | None = None,
-    temperature: float | None = None,
+    effort: str | None = None,
     timeout: float | None = None,
     max_retries: int | None = None,
     question_id: str | None = None,
@@ -105,7 +105,7 @@ def ask(
     """
     model = config.resolve_model(model)
     max_tokens = max_tokens if max_tokens is not None else config.DEFAULT_MAX_TOKENS
-    temperature = temperature if temperature is not None else config.DEFAULT_TEMPERATURE
+    effort = effort or config.DEFAULT_EFFORT
     timeout = timeout if timeout is not None else config.DEFAULT_TIMEOUT_S
     max_retries = max_retries if max_retries is not None else config.DEFAULT_MAX_RETRIES
 
@@ -115,8 +115,8 @@ def ask(
         "system": system,
         "messages": [{"role": "user", "content": question}],
     }
-    if temperature is not None:
-        params["temperature"] = temperature
+    if effort:
+        params["output_config"] = {"effort": effort}
 
     call_id = uuid.uuid4().hex[:12]
     chunks: list[str] = []
@@ -143,7 +143,7 @@ def ask(
     # Without a key the SDK raises a bare TypeError mid-request; fail fast with a clear message instead.
     if not os.getenv("ANTHROPIC_API_KEY"):
         result = _failed("no_api_key", FATAL, "ANTHROPIC_API_KEY is not set. Add it to .env (see .env.example).")
-        _log(result, question, max_tokens, temperature, timeout, max_retries)
+        _log(result, question, max_tokens, effort, timeout, max_retries)
         return result
 
     try:
@@ -158,8 +158,7 @@ def ask(
             final = stream.get_final_message()
 
         usage = final.usage
-        details = getattr(usage, "ouput_token_details", None)
-        thinking_tokens = getattr(details, "thinking_tokens", None)
+        details = getattr(usage, "output_tokens_details", None)
         result = AskResult(
             call_id=call_id,
             question_id=question_id,
@@ -168,7 +167,7 @@ def ask(
             stop_reason=final.stop_reason,
             input_tokens=usage.input_tokens,
             output_tokens=usage.output_tokens,
-            thinking_tokens=thinking_tokens,
+            thinking_tokens=getattr(details, "thinking_tokens", None),
             ttft_s=_round(ttft),
             latency_s=_round(time.perf_counter() - start),
             cost_usd=config.estimate_cost(model, usage.input_tokens, usage.output_tokens),
@@ -176,11 +175,11 @@ def ask(
     except anthropic.AnthropicError as exc:
         result = _failed(*classify_error(exc))
 
-    _log(result, question, max_tokens, temperature, timeout, max_retries)
+    _log(result, question, max_tokens, effort, timeout, max_retries)
     return result
 
 
-def _log(result: AskResult, question: str, max_tokens: int, temperature: float | None,
+def _log(result: AskResult, question: str, max_tokens: int, effort: str | None,
          timeout: float, max_retries: int) -> None:
     record = asdict(result)
     record.pop("text")  # answers go to outputs/, not the log
@@ -190,7 +189,7 @@ def _log(result: AskResult, question: str, max_tokens: int, temperature: float |
             "answer_chars": len(result.text),
             "truncated": result.truncated,
             "max_tokens": max_tokens,
-            "temperature": temperature,
+            "effort": effort,
             "timeout_s": timeout,
             "max_retries": max_retries,
         }
